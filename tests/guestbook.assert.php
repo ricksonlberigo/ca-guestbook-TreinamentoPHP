@@ -16,8 +16,8 @@ assert(
   new \Exception('não funcionou a função')
 );
 
-// $foundedVisitor = findVisitor($visitor['email']);
-// assert($foundedVisitor == $visitor, new \Exception('Não encontrou o visitor'));
+$foundedVisitor = findInVisitor($visitor['email']);
+assert($foundedVisitor == $visitor, new \Exception('Não encontrou o visitor'));
 
-// deleteVisitor($visitor['email']);
-// assert(0 < filesize($assertFile), new \Exception('Apagou a menos'));
+deleteVisitorInEmail($visitor['email']);
+assert(0 < filesize($assertFile), new \Exception('Apagou a menos'));
