@@ -60,3 +60,35 @@ function listAllVisitorsInScreen(string $email = null)
 }
 
 // Delete Visitor
+function deleteVisitorInEmail(string $email)
+{
+  $handle = connect();
+  $tmp = fopen('tmp_delete.csv', 'w');
+  while (false === feof($handle)) {
+    $register = fgetcsv($handle);
+    if ($register && $register[0] != $email) {
+      fputcsv($tmp, $register);
+    }
+  }
+  close($handle);
+  fclose($tmp);
+  unlink(getenv('GUESTBOOK'));
+  rename('tmp_delete.csv', getenv('GUESTBOOK'));
+}
+
+// Find Visitor
+function findInVisitor(string $email)
+{
+  $handle = connect();
+  while (false === feof($handle)) {
+    $register = fgetcsv($handle);
+    if ($register && $register[0] === $email) {
+      return [
+        'email' => $register[0],
+        'name' => $register[1],
+      ];
+    }
+  }
+  close($handle);
+  return NULL;
+}

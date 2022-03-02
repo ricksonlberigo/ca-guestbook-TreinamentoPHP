@@ -33,6 +33,7 @@
           <tr>
             <th scope="col">E-mail</th>
             <th scope="col">Nome</th>
+            <th scope="col">Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -40,6 +41,9 @@
             <tr>
               <td><?= $visitor['email']; ?></td>
               <td><?= $visitor['name']; ?></td>
+              <td>
+                <a href="./deleteTemplate.php?email=<?= $visitor['email']; ?>" class="btn btn-danger btn-sm">Excluir</a>
+              </td>
             </tr>
           <?php endforeach; ?>
         </tbody>
