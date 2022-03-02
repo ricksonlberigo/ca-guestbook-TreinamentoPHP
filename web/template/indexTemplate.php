@@ -28,6 +28,7 @@
         </div>
 
         <input type="submit" class="btn btn-primary btn-lg" value="Assinar livro de visitas">
+        <a href="template/listTemplate.php" class="btn btn-secondary btn-lg">Lista de visitantes</a>
       </form>
     </div>
   </div>
