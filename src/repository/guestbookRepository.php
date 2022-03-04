@@ -19,23 +19,6 @@ function saveVisitorInDB(array $visitor)
   close($handle);
 }
 
-// Find Visitor
-function findVisitor(string $email)
-{
-  $handle = connect();
-  while (false === feof($handle)) {
-    $register = fgetcsv($handle);
-    if ($register && $register[0] == $email) {
-      return [
-        'email' => $register[0],
-        'name' => $register[1],
-      ];
-    }
-  }
-  close($handle);
-  return NULL;
-}
-
 // List All Visitor
 function listAllVisitorsInScreen(string $email = null)
 {
